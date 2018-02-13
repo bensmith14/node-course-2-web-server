@@ -21,13 +21,13 @@ app.use((req, res, next) => {
     }
   });
   next();
-}); 
-
-app.use((req, res, next) => {
-//  res.send('<h1>hello express</h1>');
-  res.render('maintain.hbs', {
-  });
 });
+
+// app.use((req, res, next) => {
+// //  res.send('<h1>hello express</h1>');
+//   res.render('maintain.hbs', {
+//   });
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -55,7 +55,14 @@ app.get('/about', (req, res) => {
     pageTitle: 'about page',
     currentYear: new Date().getFullYear()
   });
+});
 
+
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'My Projects',
+    currentYear: new Date().getFullYear()
+  });
 });
 
 app.get('/bad', (req, res) => {
